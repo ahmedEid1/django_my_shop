@@ -33,4 +33,4 @@ class OrderItem(models.Model):
         return self.price * self.quantity
 
     def __str__(self):
-        return self.id
+        return str(self.id)

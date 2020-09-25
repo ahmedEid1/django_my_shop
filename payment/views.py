@@ -27,7 +27,7 @@ def payment_process(request):
 
         if result.is_success:
             order.paid = True
-            order.braintree_id = request.transaction.id
+            order.braintree_id = result.transaction.id
             order.save()
 
             return redirect('payment:done')

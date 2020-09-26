@@ -10,6 +10,23 @@
 <body>
     <div id="header">
         <a href="/" class="logo">{% trans "My Shop" %}</a>
+        {% get_current_language as language_Code %}
+        {% get_available_languages as languages %}
+        {% get_language_info_list for languages as langs %}
+
+        <div class="languages">
+            <p>{% trans 'languages' %}</p>
+            <ul class="languages">
+                {% for lang in langs %}
+                    <li>
+                        <a href="/{{ lang.code }}/"
+                           {% if lang.code  == language_Code %}class="selected"{% endif %}>
+                            {{ lang.name_local }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
     <div id="subheader">
         <div class="cart">

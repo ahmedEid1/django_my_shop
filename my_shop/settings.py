@@ -110,9 +110,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = 'en'
+
+from django.utils.translation import gettext_lazy as _
 LANGUAGES = (
-    ('en', 'English'),
-    ('ar', 'Arabic'),
+    ('en', _('English')),
+    ('ar', _('Arabic')),
 )
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'))

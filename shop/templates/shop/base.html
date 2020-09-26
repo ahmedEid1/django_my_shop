@@ -23,6 +23,7 @@
                         {% plural %}
                         {{ items }} items,
                         with price ${{ total }}
+                        {% endblocktrans %}
                     </a>
                 {% else %}
                     {% trans "Your Cart is empty" %}

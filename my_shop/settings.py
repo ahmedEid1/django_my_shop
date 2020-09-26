@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'rosetta',
 
 ]
 
@@ -112,13 +113,13 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en'
 
 from django.utils.translation import gettext_lazy as _
+
 LANGUAGES = (
     ('en', _('English')),
     ('ar', _('Arabic')),
 )
-
-LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'))
-
+#
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'),)
 
 TIME_ZONE = 'UTC'
 
@@ -148,7 +149,7 @@ BRAINTREE_PRIVATE_KEY = "5e200d449ead407007544c53d5f65739"
 import braintree
 
 BRAINTREE_CONF = braintree.Configuration(
-        braintree.Environment.Sandbox,
-        BRAINTREE_MERCHANT_ID,
-        BRAINTREE_PUBLIC_KEY,
-        BRAINTREE_PRIVATE_KEY)
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY)

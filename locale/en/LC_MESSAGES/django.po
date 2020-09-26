@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-26 12:48+0200\n"
+"POT-Creation-Date: 2020-09-26 13:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,97 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\cart\forms.py:12 .\cart\templates\cart\detail.html:15
+msgid "Quantity"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:6
+msgid "Your shopping cart"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:13
+msgid "Image"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:14
+msgid "Product"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:16
+msgid "Remove"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:17
+msgid "Unit price"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:18
+msgid "Price"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:57
+msgid "Subtotal"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:62
+#, python-format
+msgid ""
+"\n"
+"                        <td>\"%(code)s\" coupon (%(discount)s%% off)</td>\n"
+"                    "
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:78
+msgid "Apply a coupon"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:87
+msgid "Continue shopping"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:89
+msgid "Checkout"
+msgstr ""
+
+#: .\coupons\forms.py:6
+msgid "Coupon"
+msgstr ""
+
 #: .\my_shop\settings.py:116
 msgid "English"
 msgstr ""
 
 #: .\my_shop\settings.py:117
 msgid "Arabic"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:7 .\shop\templates\shop\base.html:12
+msgid "My Shop"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:18
+msgid "Your Cart:"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:20
+#, python-format
+msgid ""
+"\n"
+"                        %(items)s item,\n"
+"                        with price $%(total)s\n"
+"                        "
+msgid_plural ""
+"\n"
+"                        %(items)s items,\n"
+"                        with price $%(total)s\n"
+"                        "
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\shop\templates\shop\base.html:29
+msgid "Your Cart is empty"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:26
+msgid "Add to Cart"
 msgstr ""

@@ -1,20 +1,21 @@
 {% extends 'shop/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-    Your Shopping Cart
+   {% trans "Your shopping cart" %}
 {% endblock %}
 
 {% block content %}
     <table class="cart">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Remove</th>
-                <th>Unit Price</th>
-                <th>Price</th>
+                <th>{% trans "Image" %}</th>
+                <th>{% trans "Product" %}</th>
+                <th>{% trans "Quantity" %}</th>
+                <th>{% trans "Remove" %}</th>
+                <th>{% trans "Unit price" %}</th>
+                <th>{% trans "Price" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -53,15 +54,14 @@
 
             {% if cart.coupon %}
                 <tr class="subtotal">
-                    <td>SubTotal</td>
+                    <td>{% trans "Subtotal" %}</td>
                     <td colspan="4"></td>
                     <td class="num">{{ cart.get_total_price|floatformat:2 }}</td>
                 </tr>
                 <tr>
-                    <td>
-                        "{{ cart.coupon.code }}" coupon
-                        ({{ cart.coupon.discount }}% off)
-                    </td>
+                    {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+                        <td>"{{ code }}" coupon ({{ discount }}% off)</td>
+                    {% endblocktrans %}
                     <td colspan="4"></td>
                     <td class="numm neg">- {{ cart.get_discount|floatformat:2 }}</td>
                 </tr>
@@ -75,7 +75,7 @@
         </tbody>
     </table>
 
-    <p>Apply a Coupon</p>
+    <p>{% trans "Apply a coupon" %}</p>
     <form action="{% url 'coupons:apply' %}" method="post">
         {% csrf_token %}
         {{ coupon_apply_form }}
@@ -84,8 +84,8 @@
 
     <p class="text-right">
         <a class="button light" href="{% url 'shop:product_list' %}">
-            Continue Shopping
+            {% trans "Continue shopping" %}
         </a>
-        <a class="button" href="{% url 'orders:order_create' %}">Checkout</a>
+        <a class="button" href="{% url 'orders:order_create' %}">{% trans "Checkout" %}</a>
     </p>
 {% endblock %}

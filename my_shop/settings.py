@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'coupons.apps.CouponsConfig',
     'rosetta',
     'parler',
+    'localflavor',
 
 ]
 

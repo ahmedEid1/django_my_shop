@@ -43,7 +43,6 @@ def cart_detail(request):
 
     r = Recommender()
     cart_products = [item['product'] for item in cart]
-    print(cart_products)
     recommend_products = r.suggest_products_for(cart_products, 2)
 
     return render(request, 'cart/detail.html',

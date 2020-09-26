@@ -5,6 +5,7 @@ from .cart import Cart
 from .forms import CartAddProduct
 
 from coupons.forms import CouponApplyForm
+from shop.recommender import Recommender
 
 
 @require_POST
@@ -26,12 +27,13 @@ def cart_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
+    if not cart:
+        return redirect('/')
     return redirect('cart:cart_detail')
 
 
 def cart_detail(request):
     cart = Cart(request)
-
     for item in cart:
         item['update_quantity_form'] = CartAddProduct(initial={
             'quantity': item['quantity'],
@@ -39,8 +41,14 @@ def cart_detail(request):
         })
     coupon_apply_form = CouponApplyForm()
 
+    r = Recommender()
+    cart_products = [item['product'] for item in cart]
+    print(cart_products)
+    recommend_products = r.suggest_products_for(cart_products, 2)
+
     return render(request, 'cart/detail.html',
                   {
                       'cart': cart,
-                      'coupon_apply_form': coupon_apply_form
+                      'coupon_apply_form': coupon_apply_form,
+                      'recommended_products': recommend_products
                    })
